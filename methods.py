@@ -3,7 +3,7 @@ import requests
 
 class MainMethods:
     """
-    This is a class of basic methods for testing openbrewerydb.org
+    Basic methods for testing openbrewerydb.org endpoints.
     """
     def __init__(self):
         self.url = "https://api.openbrewerydb.org/breweries/"

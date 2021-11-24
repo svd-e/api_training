@@ -1,1 +1,1 @@
-# Some API tests of https://www.openbrewerydb.org/ site.
+# Some tests for https://www.openbrewerydb.org/ API.

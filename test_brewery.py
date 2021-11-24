@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.test_get_brewery
 class TestGetBrewery:
     """
-    This class created for testing the "Get Brewery" option of the openbrewerydb.org resource
+    Tests for "Get Brewery" method.
     """
 
     @pytest.mark.parametrize('id', ["10-56-brewing-company-knox", "zwei-brewing-co-fort-collins"])
@@ -42,7 +42,7 @@ class TestGetBrewery:
 @pytest.mark.parametrize('sort_param', ["city", "country"])
 class TestListBreweries:
     """
-    This class created for testing the "List Breweries" option of the openbrewerydb.org resource
+    Tests for sort option of "List Breweries" method.
     """
 
     def test_of_ascending_order(self, client, sort_param):
