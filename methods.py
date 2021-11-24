@@ -1,10 +1,16 @@
-import json
-
 import requests
 
+
 class MainMethods:
+    """
+    This is a class of basic methods for testing openbrewerydb.org
+    """
     def __init__(self):
         self.url = "https://api.openbrewerydb.org/breweries/"
+        self.id = None
+        self.res = None
+        self.data = None
+        self.sorted_data = None
 
     def request_by_id(self, id):
         self.id = id
@@ -18,17 +24,12 @@ class MainMethods:
         self.data = self.res.json()
         for i in range(0, len(self.data)):
             self.sorted_data.append(self.data[i][sort_param])
-            # print(self.data[i][sort_param])
-        # print(json.dumps(self.data, indent=4))
 
     def is_the_order_ascending(self):
-        # print(self.sorted_data)
-        # print(sorted(self.sorted_data))
         assert self.sorted_data == sorted(self.sorted_data), "The order is not ascending"
 
     def is_the_order_descending(self):
         assert self.sorted_data == sorted(self.sorted_data, reverse=True), "The order is not descending"
-
 
     def is_the_status_code_is_200(self):
         assert self.res.status_code == 200, "Status code is not 200"
@@ -46,4 +47,4 @@ class MainMethods:
         assert self.data["message"] == "Couldn't find Brewery", "The failure message is wrong"
 
     def is_there_an_non_null_name_field(self):
-        assert self.data["name"] != None, "The brewery doesn't have a name"
+        assert self.data["name"] is not None, "The brewery doesn't have a name"
